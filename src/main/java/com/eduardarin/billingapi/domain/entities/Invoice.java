@@ -22,7 +22,7 @@ public class Invoice {
     private double totalTaxes;
     private double totalDiscount;
     private double total;
-    private StatusBilling statusBilling ;
+    private StatusBilling statusBilling;
     private TypeBill typeBill;
     private String observation;
 
