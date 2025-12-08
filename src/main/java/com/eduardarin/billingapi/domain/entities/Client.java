@@ -20,8 +20,8 @@ public class Client{
     private Status status;
     private Date createdDate;
 
-    public Client updateClientInformation(Client client){
-        return client;
+    public void updateClientInformation(Client client){
+
     }
 
     public void updateStatusClient(Status status){
