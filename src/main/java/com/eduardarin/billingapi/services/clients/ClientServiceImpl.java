@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements ClientService{
@@ -18,20 +19,20 @@ public class ClientServiceImpl implements ClientService{
 
 
     @Override
-    public Client createClient(Client client) {
+    public Optional<Client> createClient(Client client) {
 
         if(clientRepository.existsById(client.getId())){
            throw new IllegalArgumentException("Client Already exist");
         }
-        return clientRepository.save(client);
+        return Optional.of(clientRepository.save(client));
     }
 
     @Override
-    public Client updateClient(Client client) {
+    public Optional<Client> updateClient(Client client) {
         if(!clientRepository.existsById(client.getId())){
             throw new IllegalArgumentException("Client not exists");
         }
-        return clientRepository.save(client);
+        return Optional.of(clientRepository.save(client));
     }
 
     @Override
@@ -43,11 +44,11 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Client findClientById(Long idClient) {
+    public Optional<Client> findClientById(Long idClient) {
         if(!clientRepository.existsById(idClient)){
             throw new NoSuchElementException("Client not exists");
         }
-        return clientRepository.findById(idClient).get();
+        return clientRepository.findById(idClient);
     }
 
     @Override
