@@ -4,13 +4,14 @@ import com.eduardarin.billingapi.domain.entities.Client;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ClientService {
 
-    Client createClient(Client client);
-    Client updateClient(Client client);
+    Optional<Client> createClient(Client client);
+    Optional<Client> updateClient(Client client);
     boolean updateStatusClient(Long idClient, boolean status);
-    Client findClientById(Long idClient);
-    List findAllClients();
+    Optional<Client> findClientById(Long idClient);
+    List<Client> findAllClients();
 
 }
