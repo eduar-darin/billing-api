@@ -12,4 +12,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Query()
     Optional<Client> findClientByDocument(String document);
 
+    @Query()
+    Optional<Client> updateClientStatus(String document);
+
 }
